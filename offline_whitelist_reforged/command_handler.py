@@ -7,13 +7,13 @@ from mcdreforged.command.builder.tools import SimpleCommandBuilder
 from offline_whitelist_reforged.util import PlayerInfo
 from offline_whitelist_reforged.util import replace_code, generate_offline_uuid, save_whitelist
 
-help_msg = '''-------- §a Offline Whitelist Reforged §r--------
+help_msg = '''-------- §6 原神白名单 §r--------
 §b!!wr help §f- §c显示帮助消息
-§b!!wr list §f- §c显示全部玩家的白名单
-§b!!wr add <player> §f- §c 为<player>添加白名单
-§b!!wr remove <player> §f- §c 移除<player>的白名单
-§b!!wr on §f- §c打开白名单
-§b!!wr off §f- §c关闭白名单
+§b!!wr list §f- §c显示全部§6原神§r玩家的白名单
+§b!!wr add <player> §f- §c 为§6原神玩家§r添加白名单
+§b!!wr remove <player> §f- §c 移除§6原神玩家§r的白名单
+§b!!wr on §f- §c打开§6原神§r白名单
+§b!!wr off §f- §c关闭§6原神§r白名单
 ---------------------------------------------
 '''
 
@@ -61,7 +61,7 @@ class CommandHandler:
         server.reply(replace_code(resp))
 
     def add_player(self, server, context):
-        if self.server.get_permission_level(server) < 3:
+        if self.server.get_permission_level(server) < 2:
             resp = f'&c你没有权限添加白名单，请确保权限等级不低于ADMIN'
         else:
             resp = None
@@ -79,7 +79,7 @@ class CommandHandler:
         server.reply(replace_code(resp))
 
     def remove_player(self, server, context):
-        if self.server.get_permission_level(server) < 3:
+        if self.server.get_permission_level(server) < 2:
             resp = f'&c你没有权限移除白名单，请确保权限等级不低于ADMIN'
         else:
             player = context['player']
